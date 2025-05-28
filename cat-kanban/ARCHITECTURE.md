@@ -36,25 +36,30 @@ The project follows a type-based organization:
 │   ├── index.tsx       # Main board page
 │   ├── api/            # API endpoints
 │   │   └── tasks.ts    # Task CRUD operations
-├── components/         # Reusable React components
-│   ├── Board.tsx       # Main board component
-│   ├── Column.tsx      # Individual column component
-│   ├── Task.tsx        # Task card component
-│   ├── TaskForm.tsx    # Form for creating/editing tasks
-│   └── ...
-├── hooks/              # Custom React hooks
-│   ├── useTasks.ts     # Hook for task data operations
-│   └── ...
-├── contexts/           # React contexts
-│   └── TaskContext.tsx # Task data and operations context
-├── types/              # TypeScript type definitions
-│   └── index.ts        # Task and other shared types
-├── utils/              # Utility functions
-│   ├── api.ts          # API utility functions
-│   └── ...
+├── src/                # Source code
+│   ├── app/            # Next.js App Router (current setup)
+│   │   ├── page.tsx    # Main board page
+│   │   ├── layout.tsx  # Root layout
+│   │   └── globals.css # Global styles
+│   ├── components/     # Reusable React components (will be added)
+│   │   ├── Board.tsx   # Main board component
+│   │   ├── Column.tsx  # Individual column component
+│   │   ├── Task.tsx    # Task card component
+│   │   ├── TaskForm.tsx # Form for creating/editing tasks
+│   │   └── ...
+│   ├── hooks/          # Custom React hooks (will be added)
+│   │   ├── useTasks.ts # Hook for task data operations
+│   │   └── ...
+│   ├── contexts/       # React contexts (will be added)
+│   │   └── TaskContext.tsx # Task data and operations context
+│   ├── types/          # TypeScript type definitions
+│   │   └── index.ts    # Task and other shared types
+│   └── utils/          # Utility functions
+│       ├── fileStorage.ts # File operations for data persistence
+│       └── ...
 ├── data/               # Data storage
 │   └── tasks.json      # JSON file for tasks
-├── styles/             # Global styles
+├── styles/             # Global styles (if using pages router)
 │   └── globals.css     # Tailwind imports and global styles
 └── public/             # Static assets
 ```
@@ -77,13 +82,26 @@ interface Task {
   id: string;          // Unique identifier
   title: string;       // Task title
   description?: string; // Optional description
-  status: 'todo' | 'doing' | 'done'; // Task status/column
-  priority: 'low' | 'medium' | 'high'; // Task priority
+  status: TaskStatus;  // Task status/column (todo, doing, done)
+  priority: TaskPriority; // Task priority (low, medium, high)
   dueDate?: string;    // Optional due date (ISO string)
   createdAt: string;   // Creation timestamp (ISO string)
   updatedAt: string;   // Last update timestamp (ISO string)
 }
+
+type TaskStatus = "todo" | "doing" | "done";
+type TaskPriority = "low" | "medium" | "high";
 ```
+
+## File Storage
+
+The application uses file-based JSON storage with the following utility functions:
+
+- `readTasks()`: Reads all tasks from the JSON file
+- `writeTasks(tasks)`: Writes tasks to the JSON file
+- `addTask(task)`: Adds a new task to the JSON file
+- `updateTask(updatedTask)`: Updates an existing task in the JSON file
+- `deleteTask(id)`: Deletes a task from the JSON file
 
 ## API Endpoints
 
