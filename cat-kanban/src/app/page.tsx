@@ -46,8 +46,13 @@ export default function Home() {
       <div className="flex flex-col gap-6">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-            Welcome to Cat Kanban
+            Welcome to Catban
           </h1>
+          <img
+            src="https://cdn2.thecatapi.com/images/DEbrbE0_7.jpg"
+            alt=""
+            className="w-50 rounded-lg shadow-md"
+          />
           <Button
             onClick={() => {
               setTaskToEdit(null);
@@ -78,7 +83,7 @@ export default function Home() {
         )}
 
         <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Kanban Board</h2>
+          <h2 className="text-xl font-semibold mb-4">Catban Board</h2>
 
           {loading && <p>Loading tasks...</p>}
 
