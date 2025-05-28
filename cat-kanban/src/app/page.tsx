@@ -1,26 +1,50 @@
 "use client";
 
-import { Layout, Header, Footer, Card, Button, Board, Task } from "@/components";
+import { useState } from 'react';
+import { Layout, Header, Footer, Card, Button, Board, Task, TaskForm } from "@/components";
 import { useTasks } from '@/hooks/useTasks';
 
 export default function Home() {
-  const { loading, error, getTasksByStatus } = useTasks();
+  const { loading, error, getTasksByStatus, refreshTasks } = useTasks();
+  const [showTaskForm, setShowTaskForm] = useState(false);
   
   const todoTasks = getTasksByStatus('todo');
   const doingTasks = getTasksByStatus('doing');
   const doneTasks = getTasksByStatus('done');
 
+  const handleTaskFormSuccess = () => {
+    setShowTaskForm(false);
+    refreshTasks();
+  };
+
   return (
     <Layout header={<Header />} footer={<Footer />}>
       <div className="flex flex-col gap-6">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-          Welcome to Cat Kanban
-        </h1>
+        <div className="flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+            Welcome to Cat Kanban
+          </h1>
+          <Button
+            onClick={() => setShowTaskForm(true)}
+            variant="primary"
+          >
+            Create Task
+          </Button>
+        </div>
 
         <p className="text-gray-600 dark:text-gray-300">
           Your simple and efficient task management board. Organize your tasks
           across different stages of completion.
         </p>
+
+        {showTaskForm && (
+          <div className="mb-6">
+            <TaskForm 
+              onSuccess={handleTaskFormSuccess}
+              onCancel={() => setShowTaskForm(false)}
+            />
+          </div>
+        )}
 
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Kanban Board</h2>
