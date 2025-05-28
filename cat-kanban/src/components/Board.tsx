@@ -1,6 +1,5 @@
 import React from 'react';
 import { Column } from './Column';
-import { TaskStatus } from '../types';
 
 interface BoardProps {
   children?: React.ReactNode;

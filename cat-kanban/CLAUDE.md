@@ -118,6 +118,7 @@ Before submitting any code, ensure the following steps are completed:
 - No authentication or user management - all users share the same board
 - Local development only - no deployment configuration provided
 - Tailwind CSS v4 requires specific configuration - use @tailwindcss/postcss plugin in postcss.config.mjs and @import syntax in globals.css
+- Next.js App Router components using React hooks or Context API must include "use client" directive
 
 ## Tailwind CSS v4 Configuration
 
