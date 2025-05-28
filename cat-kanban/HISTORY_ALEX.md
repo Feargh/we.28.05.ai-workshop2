@@ -22,6 +22,15 @@
 - Implemented error handling with try/catch blocks
 - Created initial `data/tasks.json` file structure with empty array
 
+### BE-04: Create Task API Routes (GET and POST)
+- Implemented Next.js API route in `pages/api/tasks.ts` for:
+  - GET: Retrieving all tasks from the JSON file
+  - POST: Creating new tasks with validation
+- Added comprehensive error handling with appropriate HTTP status codes
+- Implemented input validation for required fields
+- Tested endpoints with sample task data
+- Used UUID for generating unique task IDs
+
 ## Key Decisions and Patterns
 
 - Using type aliases for enum-like values (TaskStatus, TaskPriority)
@@ -33,7 +42,9 @@
 - Using async/await for all file operations
 - Implementing core read/write functions and higher-level utility functions for better API design
 - Error handling pattern: try/catch with specific error messages
+- Using switch statements for API route handling based on HTTP method
+- Separating handler logic into method-specific functions for better readability
 
 ## Current State
 
-Project has established basic structure, type definitions, and file-based data storage. Ready to implement API routes for task operations in BE-04.
+Project has a working REST API for retrieving and creating tasks. The API uses file-based JSON storage for persistence. Ready to implement update and delete operations in BE-05.
