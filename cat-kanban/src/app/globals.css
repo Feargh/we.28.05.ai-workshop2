@@ -1,8 +1,23 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Kanban column colors */
+  --todo-color: #eef2ff;
+  --doing-color: #fffbeb;
+  --done-color: #ecfdf5;
+  
+  /* Kanban column header colors */
+  --todo-header: #c7d2fe;
+  --doing-header: #fef3c7;
+  --done-header: #d1fae5;
+  
+  /* Priority colors */
+  --priority-low: #22c55e;
+  --priority-medium: #f59e0b;
+  --priority-high: #ef4444;
 }
 
 @theme inline {
@@ -16,11 +31,54 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    
+    /* Kanban column colors (dark mode) */
+    --todo-color: #1e293b;
+    --doing-color: #292524;
+    --done-color: #064e3b;
+    
+    /* Kanban column header colors (dark mode) */
+    --todo-header: #334155;
+    --doing-header: #44403c;
+    --done-header: #065f46;
+    
+    /* Priority colors remain the same for better visibility */
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial), sans-serif;
+}
+
+/* Kanban board component classes */
+@layer components {
+  .kanban-column {
+    @apply rounded-lg shadow-sm p-4 min-h-[500px] flex flex-col;
+  }
+  
+  .kanban-column-header {
+    @apply font-semibold text-lg mb-4 p-2 rounded-md;
+  }
+  
+  .task-card {
+    @apply bg-white dark:bg-gray-800 rounded-md p-3 mb-3 shadow-sm hover:shadow-md transition-shadow cursor-pointer border border-gray-200 dark:border-gray-700;
+  }
+  
+  .priority-badge {
+    @apply text-xs px-2 py-1 rounded-full font-medium;
+  }
+  
+  .priority-low {
+    @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100;
+  }
+  
+  .priority-medium {
+    @apply bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-100;
+  }
+  
+  .priority-high {
+    @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100;
+  }
 }

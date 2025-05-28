@@ -31,6 +31,16 @@
 - Tested endpoints with sample task data
 - Used UUID for generating unique task IDs
 
+### BE-05: Create Task API Routes (PUT and DELETE)
+- Implemented Next.js API route in `pages/api/tasks/[id].ts` for:
+  - PUT: Updating existing tasks with validation
+  - DELETE: Removing tasks from storage
+- Used dynamic routing with the [id] parameter
+- Added proper error handling with appropriate status codes
+- Preserved createdAt timestamp during updates while refreshing updatedAt
+- Implemented 204 No Content response for successful deletions
+- Tested endpoints with curl commands
+
 ## Key Decisions and Patterns
 
 - Using type aliases for enum-like values (TaskStatus, TaskPriority)
@@ -44,7 +54,9 @@
 - Error handling pattern: try/catch with specific error messages
 - Using switch statements for API route handling based on HTTP method
 - Separating handler logic into method-specific functions for better readability
+- Consistent API response format across endpoints
+- Using HTTP status codes appropriately (200, 201, 204, 400, 404, 500)
 
 ## Current State
 
-Project has a working REST API for retrieving and creating tasks. The API uses file-based JSON storage for persistence. Ready to implement update and delete operations in BE-05.
+Project has a fully working REST API for CRUD operations on tasks. All endpoints have been tested and are working correctly. The API uses file-based JSON storage for persistence. Ready to implement filtering capabilities in BE-06.

@@ -10,7 +10,7 @@ A collaborative Kanban board application built as a local web app where users ca
 
 - Languages: TypeScript
 - Frameworks: Next.js, React (functional components with hooks)
-- Tools: npm, Tailwind CSS, JSON file storage
+- Tools: npm, Tailwind CSS v4, JSON file storage
 
 ## Code Style & Conventions
 
@@ -117,6 +117,15 @@ Before submitting any code, ensure the following steps are completed:
 - JSON file storage has limited concurrent write capability - implement proper error handling for write conflicts
 - No authentication or user management - all users share the same board
 - Local development only - no deployment configuration provided
+- Tailwind CSS v4 requires specific configuration - use @tailwindcss/postcss plugin in postcss.config.mjs and @import syntax in globals.css
+
+## Tailwind CSS v4 Configuration
+
+- Use @import 'tailwindcss' in globals.css instead of @tailwind directives
+- Configure postcss.config.mjs with @tailwindcss/postcss plugin
+- Create tailwind.config.js with content paths and theme extensions
+- Use CSS variables for theming and consistent color patterns
+- Define component-specific utility classes in @layer components
 
 ## References
 
