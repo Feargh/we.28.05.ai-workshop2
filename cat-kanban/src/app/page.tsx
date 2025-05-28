@@ -3,10 +3,12 @@
 import { useState } from 'react';
 import { Layout, Header, Footer, Card, Button, Board, Task, TaskForm } from "@/components";
 import { useTasks } from '@/hooks/useTasks';
+import { Task as TaskType } from '@/types';
 
 export default function Home() {
   const { loading, error, getTasksByStatus, refreshTasks } = useTasks();
   const [showTaskForm, setShowTaskForm] = useState(false);
+  const [taskToEdit, setTaskToEdit] = useState<TaskType | null>(null);
   
   const todoTasks = getTasksByStatus('todo');
   const doingTasks = getTasksByStatus('doing');
@@ -14,7 +16,13 @@ export default function Home() {
 
   const handleTaskFormSuccess = () => {
     setShowTaskForm(false);
+    setTaskToEdit(null);
     refreshTasks();
+  };
+
+  const handleEditTask = (task: TaskType) => {
+    setTaskToEdit(task);
+    setShowTaskForm(true);
   };
 
   return (
@@ -25,7 +33,10 @@ export default function Home() {
             Welcome to Cat Kanban
           </h1>
           <Button
-            onClick={() => setShowTaskForm(true)}
+            onClick={() => {
+              setTaskToEdit(null);
+              setShowTaskForm(true);
+            }}
             variant="primary"
           >
             Create Task
@@ -40,8 +51,12 @@ export default function Home() {
         {showTaskForm && (
           <div className="mb-6">
             <TaskForm 
+              task={taskToEdit || undefined}
               onSuccess={handleTaskFormSuccess}
-              onCancel={() => setShowTaskForm(false)}
+              onCancel={() => {
+                setShowTaskForm(false);
+                setTaskToEdit(null);
+              }}
             />
           </div>
         )}
@@ -58,7 +73,11 @@ export default function Home() {
               todoColumn={
                 <div className="space-y-3">
                   {todoTasks.map(task => (
-                    <Task key={task.id} task={task} />
+                    <Task 
+                      key={task.id} 
+                      task={task} 
+                      onEdit={() => handleEditTask(task)}
+                    />
                   ))}
                   {todoTasks.length === 0 && (
                     <p className="text-sm text-gray-500 text-center p-4">
@@ -70,7 +89,11 @@ export default function Home() {
               doingColumn={
                 <div className="space-y-3">
                   {doingTasks.map(task => (
-                    <Task key={task.id} task={task} />
+                    <Task 
+                      key={task.id} 
+                      task={task} 
+                      onEdit={() => handleEditTask(task)}
+                    />
                   ))}
                   {doingTasks.length === 0 && (
                     <p className="text-sm text-gray-500 text-center p-4">
@@ -82,7 +105,11 @@ export default function Home() {
               doneColumn={
                 <div className="space-y-3">
                   {doneTasks.map(task => (
-                    <Task key={task.id} task={task} />
+                    <Task 
+                      key={task.id} 
+                      task={task} 
+                      onEdit={() => handleEditTask(task)}
+                    />
                   ))}
                   {doneTasks.length === 0 && (
                     <p className="text-sm text-gray-500 text-center p-4">
