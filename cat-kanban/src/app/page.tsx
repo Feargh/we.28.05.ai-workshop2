@@ -1,6 +1,15 @@
-import { Layout, Header, Footer, Card, Button, Board } from "@/components";
+"use client";
+
+import { Layout, Header, Footer, Card, Button, Board, Task } from "@/components";
+import { useTasks } from '@/hooks/useTasks';
 
 export default function Home() {
+  const { loading, error, getTasksByStatus } = useTasks();
+  
+  const todoTasks = getTasksByStatus('todo');
+  const doingTasks = getTasksByStatus('doing');
+  const doneTasks = getTasksByStatus('done');
+
   return (
     <Layout header={<Header />} footer={<Footer />}>
       <div className="flex flex-col gap-6">
@@ -15,9 +24,51 @@ export default function Home() {
 
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Kanban Board</h2>
-          <Board>
-            <p className="task-card">No tasks yet. Add a task to get started.</p>
-          </Board>
+          
+          {loading && <p>Loading tasks...</p>}
+          
+          {error && <p className="text-red-500">Error: {error}</p>}
+          
+          {!loading && !error && (
+            <Board
+              todoColumn={
+                <div className="space-y-3">
+                  {todoTasks.map(task => (
+                    <Task key={task.id} task={task} />
+                  ))}
+                  {todoTasks.length === 0 && (
+                    <p className="text-sm text-gray-500 text-center p-4">
+                      No tasks yet
+                    </p>
+                  )}
+                </div>
+              }
+              doingColumn={
+                <div className="space-y-3">
+                  {doingTasks.map(task => (
+                    <Task key={task.id} task={task} />
+                  ))}
+                  {doingTasks.length === 0 && (
+                    <p className="text-sm text-gray-500 text-center p-4">
+                      No tasks in progress
+                    </p>
+                  )}
+                </div>
+              }
+              doneColumn={
+                <div className="space-y-3">
+                  {doneTasks.map(task => (
+                    <Task key={task.id} task={task} />
+                  ))}
+                  {doneTasks.length === 0 && (
+                    <p className="text-sm text-gray-500 text-center p-4">
+                      No completed tasks
+                    </p>
+                  )}
+                </div>
+              }
+            />
+          )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
@@ -56,7 +107,7 @@ export default function Home() {
                 <li>Tailwind CSS</li>
               </ul>
               <p className="mt-2">
-                The board will allow you to manage tasks by moving them between
+                The board allows you to manage tasks by moving them between
                 To Do, Doing, and Done columns.
               </p>
             </div>

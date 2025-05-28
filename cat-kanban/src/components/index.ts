@@ -6,3 +6,4 @@ export * from './Button';
 export * from './Card';
 export * from './Board';
 export * from './Column';
+export * from './Task';
