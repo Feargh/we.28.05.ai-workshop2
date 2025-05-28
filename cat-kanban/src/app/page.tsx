@@ -1,4 +1,4 @@
-import { Layout, Header, Footer, Card, Button } from "@/components";
+import { Layout, Header, Footer, Card, Button, Board } from "@/components";
 
 export default function Home() {
   return (
@@ -13,7 +13,14 @@ export default function Home() {
           across different stages of completion.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold mb-4">Kanban Board</h2>
+          <Board>
+            <p className="task-card">No tasks yet. Add a task to get started.</p>
+          </Board>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <Card
             header={<h2 className="font-semibold">Component Examples</h2>}
             footer={
