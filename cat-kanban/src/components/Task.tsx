@@ -117,11 +117,11 @@ export function Task({ task, onEdit, onDelete }: TaskProps) {
   return (
     <Card header={cardHeader} footer={cardFooter} className="task-card mb-3">
       <div className="space-y-3">
-        {task.description && (
+        {/* {task.description && (
           <p className="text-sm text-gray-700 dark:text-gray-300">
             {task.description}
           </p>
-        )}
+        )} */}
 
         {task.dueDate && (
           <div className="text-xs text-gray-600 dark:text-gray-400">
