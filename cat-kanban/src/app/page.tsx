@@ -1,18 +1,28 @@
 "use client";
 
-import { useState } from 'react';
-import { Layout, Header, Footer, Card, Button, Board, Task, TaskForm } from "@/components";
-import { useTasks } from '@/hooks/useTasks';
-import { Task as TaskType } from '@/types';
+import { useState } from "react";
+import {
+  Layout,
+  Header,
+  Footer,
+  Card,
+  Button,
+  Board,
+  Task,
+  TaskForm,
+} from "@/components";
+import { useTasks } from "@/hooks/useTasks";
+import { Task as TaskType } from "@/types";
+import { deleteTask } from "@/utils/api";
 
 export default function Home() {
   const { loading, error, getTasksByStatus, refreshTasks } = useTasks();
   const [showTaskForm, setShowTaskForm] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState<TaskType | null>(null);
-  
-  const todoTasks = getTasksByStatus('todo');
-  const doingTasks = getTasksByStatus('doing');
-  const doneTasks = getTasksByStatus('done');
+
+  const todoTasks = getTasksByStatus("todo");
+  const doingTasks = getTasksByStatus("doing");
+  const doneTasks = getTasksByStatus("done");
 
   const handleTaskFormSuccess = () => {
     setShowTaskForm(false);
@@ -23,6 +33,12 @@ export default function Home() {
   const handleEditTask = (task: TaskType) => {
     setTaskToEdit(task);
     setShowTaskForm(true);
+  };
+
+  const handleDeleteTask = async (task: TaskType) => {
+    // setTaskToDelete(task);
+    await deleteTask(task.id);
+    refreshTasks();
   };
 
   return (
@@ -50,7 +66,7 @@ export default function Home() {
 
         {showTaskForm && (
           <div className="mb-6">
-            <TaskForm 
+            <TaskForm
               task={taskToEdit || undefined}
               onSuccess={handleTaskFormSuccess}
               onCancel={() => {
@@ -63,20 +79,21 @@ export default function Home() {
 
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Kanban Board</h2>
-          
+
           {loading && <p>Loading tasks...</p>}
-          
+
           {error && <p className="text-red-500">Error: {error}</p>}
-          
+
           {!loading && !error && (
             <Board
               todoColumn={
                 <div className="space-y-3">
-                  {todoTasks.map(task => (
-                    <Task 
-                      key={task.id} 
-                      task={task} 
+                  {todoTasks.map((task) => (
+                    <Task
+                      key={task.id}
+                      task={task}
                       onEdit={() => handleEditTask(task)}
+                      onDelete={() => handleDeleteTask(task)}
                     />
                   ))}
                   {todoTasks.length === 0 && (
@@ -88,11 +105,12 @@ export default function Home() {
               }
               doingColumn={
                 <div className="space-y-3">
-                  {doingTasks.map(task => (
-                    <Task 
-                      key={task.id} 
-                      task={task} 
+                  {doingTasks.map((task) => (
+                    <Task
+                      key={task.id}
+                      task={task}
                       onEdit={() => handleEditTask(task)}
+                      onDelete={() => handleDeleteTask(task)}
                     />
                   ))}
                   {doingTasks.length === 0 && (
@@ -104,11 +122,12 @@ export default function Home() {
               }
               doneColumn={
                 <div className="space-y-3">
-                  {doneTasks.map(task => (
-                    <Task 
-                      key={task.id} 
-                      task={task} 
+                  {doneTasks.map((task) => (
+                    <Task
+                      key={task.id}
+                      task={task}
                       onEdit={() => handleEditTask(task)}
+                      onDelete={() => handleDeleteTask(task)}
                     />
                   ))}
                   {doneTasks.length === 0 && (
@@ -120,49 +139,6 @@ export default function Home() {
               }
             />
           )}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-          <Card
-            header={<h2 className="font-semibold">Component Examples</h2>}
-            footer={
-              <div className="text-sm text-gray-500">Base UI components</div>
-            }
-          >
-            <div className="flex flex-col gap-4">
-              <p>These are examples of our base UI components:</p>
-
-              <div className="flex flex-wrap gap-2">
-                <Button variant="primary">Primary</Button>
-                <Button variant="secondary">Secondary</Button>
-                <Button variant="danger">Danger</Button>
-                <Button variant="success">Success</Button>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                <Button size="small">Small</Button>
-                <Button>Medium</Button>
-                <Button size="large">Large</Button>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="md:col-span-2">
-            <div className="flex flex-col gap-4">
-              <h2 className="font-semibold text-lg">About this project</h2>
-              <p>This is a Kanban board application built with:</p>
-              <ul className="list-disc pl-5 space-y-1 text-gray-600 dark:text-gray-300">
-                <li>Next.js</li>
-                <li>React</li>
-                <li>TypeScript</li>
-                <li>Tailwind CSS</li>
-              </ul>
-              <p className="mt-2">
-                The board allows you to manage tasks by moving them between
-                To Do, Doing, and Done columns.
-              </p>
-            </div>
-          </Card>
         </div>
       </div>
     </Layout>
