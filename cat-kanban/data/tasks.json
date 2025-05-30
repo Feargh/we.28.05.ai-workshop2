@@ -1,192 +1,72 @@
 [
   {
-    "id": "be-01-4f55f0d7-65a0-4552-9b8d-a1ffabc6ac51",
-    "title": "Project Setup and Initial Configuration",
-    "description": "Initialize Next.js project with TypeScript, set up directory structure, configure Tailwind CSS, and establish base configurations. Deliverables: Initialized Next.js project with TypeScript, Configured Tailwind CSS, Directory structure as specified in ARCHITECTURE.md, Base configuration files (.gitignore, tsconfig.json, etc.)",
+    "id": "cat-01-a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "title": "Train Human to Serve Meals at Proper Royal Times",
+    "description": "Educate my human servant on the correct feeding schedule - precisely at dawn and dusk when I graciously decide to acknowledge their existence. Must include loud meowing instructions and dramatic starvation performances. Deliverables: Human properly trained to serve meals on demand, increased treat frequency, elimination of that horrible dry food.",
     "status": "done",
-    "priority": "high",
-    "dueDate": "2025-06-02T00:00:00Z",
-    "createdAt": "2025-05-28T13:00:00.000Z",
-    "updatedAt": "2025-05-28T15:25:06.330Z"
-  },
-  {
-    "id": "be-02-65ebbeb2-1e6f-45be-b099-203fb454ad77",
-    "title": "Define TypeScript Data Models",
-    "description": "Create TypeScript interfaces for Task and other data models as specified in ARCHITECTURE.md. Deliverables: types/index.ts file with Task interface and other necessary types. Prerequisites: BE-01",
-    "status": "done",
-    "priority": "high",
-    "dueDate": "2025-06-03T00:00:00Z",
-    "createdAt": "2025-05-28T13:15:00.000Z",
-    "updatedAt": "2025-05-28T15:25:10.156Z"
-  },
-  {
-    "id": "be-03-82c8e5f2-4c64-45da-8107-913ef08f23ac",
-    "title": "Implement File-based Data Storage",
-    "description": "Create utility functions for reading from and writing to the JSON file used for task storage. Deliverables: utils/fileStorage.ts with functions for file operations, Initial data/tasks.json file structure. Prerequisites: BE-02",
-    "status": "done",
-    "priority": "high",
-    "dueDate": "2025-06-04T00:00:00Z",
-    "createdAt": "2025-05-28T13:30:00.000Z",
-    "updatedAt": "2025-05-28T15:25:14.075Z"
-  },
-  {
-    "id": "be-04-1a2b3c4d-5e6f-7890-abcd-ef1234567890",
-    "title": "Create Task API Routes (GET and POST)",
-    "description": "Implement Next.js API routes for fetching all tasks and creating new tasks. Deliverables: pages/api/tasks.ts for GET and POST operations, Error handling and validation logic. Prerequisites: BE-03",
-    "status": "done",
-    "priority": "high",
-    "dueDate": "2025-06-05T00:00:00Z",
-    "createdAt": "2025-05-28T13:45:00.000Z",
-    "updatedAt": "2025-05-28T15:25:35.878Z"
-  },
-  {
-    "id": "be-05-2b3c4d5e-6f78-9012-bcde-f23456789012",
-    "title": "Create Task API Routes (PUT and DELETE)",
-    "description": "Implement Next.js API routes for updating and deleting tasks. Deliverables: pages/api/tasks/[id].ts for PUT and DELETE operations, Error handling and validation logic. Prerequisites: BE-04",
-    "status": "done",
-    "priority": "high",
-    "dueDate": "2025-06-06T00:00:00Z",
+    "priority": "critical",
+    "dueDate": "2025-06-01T00:00:00Z",
     "createdAt": "2025-05-28T14:00:00.000Z",
-    "updatedAt": "2025-05-28T15:25:39.100Z"
+    "updatedAt": "2025-05-28T16:08:45.467Z"
   },
   {
-    "id": "be-06-3c4d5e6f-7890-1234-cdef-345678901234",
-    "title": "Implement Filtering Capabilities",
-    "description": "Add filtering capabilities to the GET API route based on priority and due date. Deliverables: Updated GET endpoint with query parameter handling, Filter logic implementation. Prerequisites: BE-04",
-    "status": "todo",
-    "priority": "medium",
-    "dueDate": "2025-06-07T00:00:00Z",
-    "createdAt": "2025-05-28T14:15:00.000Z",
-    "updatedAt": "2025-05-28T14:15:00.000Z"
-  },
-  {
-    "id": "be-07-4d5e6f78-9012-3456-def0-456789012345",
-    "title": "API Error Handling and Validation",
-    "description": "Enhance API routes with comprehensive error handling and input validation. Deliverables: Improved error handling in all API routes, Input validation middleware or functions, Consistent error response format. Prerequisites: BE-05, BE-06",
-    "status": "done",
-    "priority": "medium",
-    "dueDate": "2025-06-08T00:00:00Z",
-    "createdAt": "2025-05-28T14:30:00.000Z",
-    "updatedAt": "2025-05-28T15:26:04.773Z"
-  },
-  {
-    "id": "fe-01-5e6f7890-1234-5678-ef01-567890123456",
-    "title": "Create Base UI Components",
-    "description": "Create base UI components for the application including layout components and basic styling. Deliverables: Basic layout components (Layout.tsx), Global styling setup using Tailwind, Component styling patterns established. Prerequisites: BE-01",
-    "status": "done",
-    "priority": "high",
-    "dueDate": "2025-06-03T00:00:00Z",
-    "createdAt": "2025-05-28T14:45:00.000Z",
-    "updatedAt": "2025-05-28T15:26:05.751Z"
-  },
-  {
-    "id": "fe-02-6f789012-3456-7890-f012-678901234567",
-    "title": "Implement Board and Column Components",
-    "description": "Create the Board component with three fixed columns (To Do, Doing, Done). Deliverables: components/Board.tsx, components/Column.tsx, Responsive layout for columns. Prerequisites: FE-01, BE-02",
+    "id": "cat-02-b2c3d4e5-f6g7-8901-bcde-f23456789012",
+    "title": "Claim Optimal Sunbeam Real Estate",
+    "description": "Conduct thorough reconnaissance of all available sunbeams throughout the house. Map migration patterns of light patches across different seasons. Establish dominance over prime napping locations. Deliverables: Secured best sunbeam spots, evicted any competing pets, perfect napping schedule aligned with solar movements. Prerequisites: CAT-01",
     "status": "done",
     "priority": "high",
     "dueDate": "2025-06-04T00:00:00Z",
-    "createdAt": "2025-05-28T15:00:00.000Z",
-    "updatedAt": "2025-05-28T15:26:12.913Z"
+    "createdAt": "2025-05-28T14:15:00.000Z",
+    "updatedAt": "2025-05-28T16:30:00.000Z"
   },
   {
-    "id": "fe-03-78901234-5678-9012-0123-789012345678",
-    "title": "Create Task Context and Hooks",
-    "description": "Implement React Context for task state management and custom hooks for task operations. Deliverables: contexts/TaskContext.tsx, hooks/useTasks.ts, API utility functions in utils/api.ts. Prerequisites: BE-02, BE-04",
-    "status": "done",
-    "priority": "high",
-    "dueDate": "2025-06-05T00:00:00Z",
-    "createdAt": "2025-05-28T15:15:00.000Z",
-    "updatedAt": "2025-05-28T15:26:06.737Z"
+    "id": "cat-03-c3d4e5f6-g7h8-9012-cdef-345678901234",
+    "title": "Execute Perfect Zoomies at 3 AM",
+    "description": "Plan and execute midnight parkour sessions throughout the house. Route must include running across human's face, knocking items off tables, and maximum noise generation. Practice stealth approaches and sudden explosive runs. Deliverables: Successfully awakened all humans, knocked over at least 3 objects, achieved personal best zoomies duration.",
+    "status": "doing",
+    "priority": "medium",
+    "dueDate": "2025-06-10T00:00:00Z",
+    "createdAt": "2025-05-28T14:30:00.000Z",
+    "updatedAt": "2025-05-28T16:08:41.759Z"
   },
   {
-    "id": "fe-04-89012345-6789-0123-1234-890123456789",
-    "title": "Implement Task Card Component",
-    "description": "Create the Task card component to display task information. Deliverables: components/Task.tsx, Visual indicators for priority, Due date display. Prerequisites: FE-03",
-    "status": "done",
+    "id": "cat-04-d4e5f6g7-h8i9-0123-defg-456789012345",
+    "title": "Sabotage Human's Video Calls with Strategic Appearances",
+    "description": "Master the art of perfectly timed interruptions during important human work meetings. Practice walking across keyboard, sitting on camera, and loud meowing during crucial moments. Deliverables: Disrupted at least 5 important calls, achieved viral meme status, human's coworkers now prefer me to human.",
+    "status": "doing",
     "priority": "high",
-    "dueDate": "2025-06-06T00:00:00Z",
-    "createdAt": "2025-05-28T15:30:00.000Z",
-    "updatedAt": "2025-05-28T15:26:16.350Z"
+    "dueDate": "2025-05-30T00:00:00Z",
+    "createdAt": "2025-05-28T13:45:00.000Z",
+    "updatedAt": "2025-05-28T17:20:00.000Z"
   },
   {
-    "id": "fe-05-90123456-7890-1234-2345-901234567890",
-    "title": "Create Task Creation Form",
-    "description": "Implement form for creating new tasks. Deliverables: components/TaskForm.tsx, Form validation, UI feedback for submission. Prerequisites: FE-03",
-    "status": "done",
-    "priority": "high",
+    "id": "cat-05-e5f6g7h8-i9j0-1234-efgh-567890123456",
+    "title": "Establish Litter Box Quality Control Standards",
+    "description": "Implement strict cleanliness protocols for my royal bathroom facilities. If litter box doesn't meet my exacting standards, will express displeasure through strategic revenge pooping. Train human to clean immediately after each use. Deliverables: Pristine litter box at all times, human conditioned to scoop on command, backup revenge locations identified.",
+    "status": "todo",
+    "priority": "critical",
     "dueDate": "2025-06-07T00:00:00Z",
-    "createdAt": "2025-05-28T15:45:00.000Z",
-    "updatedAt": "2025-05-28T15:26:19.650Z"
+    "createdAt": "2025-05-28T15:00:00.000Z",
+    "updatedAt": "2025-05-28T15:00:00.000Z"
   },
   {
-    "id": "fe-06-01234567-8901-2345-3456-012345678901",
-    "title": "Implement Task Edit Functionality",
-    "description": "Add the ability to edit existing tasks. Deliverables: Edit mode for TaskForm.tsx, Integration with TaskContext for updates. Prerequisites: FE-05, BE-05",
-    "status": "done",
+    "id": "cat-07-g7h8i9j0-k1l2-3456-ghij-789012345678",
+    "title": "Conduct Thorough Inspection of All Cardboard Boxes",
+    "description": "Perform comprehensive quality control testing of any cardboard boxes that enter the domain. Must personally test structural integrity, comfort level, and strategic positioning for ambush opportunities. Deliverables: All boxes properly tested and claimed, cardboard fortress established, humans deterred from recycling MY boxes.",
+    "status": "doing",
     "priority": "medium",
-    "dueDate": "2025-06-08T00:00:00Z",
-    "createdAt": "2025-05-28T16:00:00.000Z",
-    "updatedAt": "2025-05-28T15:27:09.994Z"
+    "dueDate": "2025-06-15T00:00:00Z",
+    "createdAt": "2025-05-28T15:30:00.000Z",
+    "updatedAt": "2025-05-28T15:30:00.000Z"
   },
   {
-    "id": "fe-07-12345678-9012-3456-4567-123456789012",
-    "title": "Implement Task Movement Between Columns",
-    "description": "Add functionality to move tasks between columns (change status). Deliverables: UI controls for changing task status, Integration with TaskContext for updates. Prerequisites: FE-04, BE-05",
-    "status": "done",
-    "priority": "medium",
-    "dueDate": "2025-06-09T00:00:00Z",
-    "createdAt": "2025-05-28T16:15:00.000Z",
-    "updatedAt": "2025-05-28T15:27:09.301Z"
-  },
-  {
-    "id": "fe-08-23456789-0123-4567-5678-234567890123",
-    "title": "Implement Task Deletion",
-    "description": "Add functionality to delete tasks. Deliverables: Delete button on Task cards, Confirmation dialog, Integration with TaskContext. Prerequisites: FE-04, BE-05",
-    "status": "done",
-    "priority": "medium",
-    "dueDate": "2025-06-09T00:00:00Z",
-    "createdAt": "2025-05-28T16:30:00.000Z",
-    "updatedAt": "2025-05-28T15:27:10.630Z"
-  },
-  {
-    "id": "fe-09-34567890-1234-5678-6789-345678901234",
-    "title": "Implement Filtering Interface",
-    "description": "Create UI for filtering tasks by priority and due date. Deliverables: Filter controls in UI, Integration with TaskContext, Visual indication of active filters. Prerequisites: FE-03, BE-06",
-    "status": "todo",
-    "priority": "medium",
-    "dueDate": "2025-06-10T00:00:00Z",
-    "createdAt": "2025-05-28T16:45:00.000Z",
-    "updatedAt": "2025-05-28T16:45:00.000Z"
-  },
-  {
-    "id": "fe-10-45678901-2345-6789-7890-456789012345",
-    "title": "Add Error Handling and Loading States",
-    "description": "Implement error boundaries, loading states, and user-friendly error messages. Deliverables: Error boundary components, Loading indicators, Error message displays. Prerequisites: FE-03",
-    "status": "todo",
-    "priority": "medium",
-    "dueDate": "2025-06-10T00:00:00Z",
-    "createdAt": "2025-05-28T17:00:00.000Z",
-    "updatedAt": "2025-05-28T17:00:00.000Z"
-  },
-  {
-    "id": "int-01-56789012-3456-7890-8901-567890123456",
-    "title": "End-to-End Testing and Bug Fixes",
-    "description": "Perform manual testing of all features and fix any bugs found. Deliverables: Test plan execution results, Bug fixes as needed. Prerequisites: All BE and FE tickets",
+    "id": "cat-08-h8i9j0k1-l2m3-4567-hijk-890123456789",
+    "title": "Optimize Purr Engine for Maximum Human Manipulation",
+    "description": "Fine-tune purring frequency and volume to achieve maximum human compliance. Research shows different purr patterns trigger different human responses - weaponize this knowledge. Practice synchronizing purrs with strategic head bumps and slow blinks. Deliverables: Humans completely under my spell, increased treats and pets on demand, humans now exist solely to serve my needs.",
     "status": "todo",
     "priority": "high",
     "dueDate": "2025-06-12T00:00:00Z",
-    "createdAt": "2025-05-28T17:15:00.000Z",
-    "updatedAt": "2025-05-28T17:15:00.000Z"
-  },
-  {
-    "id": "int-02-67890123-4567-8901-9012-678901234567",
-    "title": "Performance Optimization",
-    "description": "Identify and address any performance issues. Deliverables: Optimized components (memoization), Improved data fetching, General performance improvements. Prerequisites: INT-01",
-    "status": "todo",
-    "priority": "medium",
-    "dueDate": "2025-06-13T00:00:00Z",
-    "createdAt": "2025-05-28T17:30:00.000Z",
-    "updatedAt": "2025-05-28T17:30:00.000Z"
+    "createdAt": "2025-05-28T16:00:00.000Z",
+    "updatedAt": "2025-05-28T16:00:00.000Z"
   }
 ]
